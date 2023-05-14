@@ -1,0 +1,16 @@
+.header {
+    padding: 20px 0;
+    border-bottom: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header__title {
+    font-weight: 700;
+}
+
+.header__links {
+    display: flex;
+    gap: 30px;
+}

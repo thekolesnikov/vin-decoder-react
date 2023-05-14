@@ -1,10 +1,15 @@
 body {
+    background-color: aquamarine;
     font-family: 'Montserrat', sans-serif;
     color: #000;
     font-weight: 400;
 }
 
 .container {
-    max-width: 1440px;
+    max-width: 1200px;
     margin: 0 auto;
+}
+
+a.active {
+    font-weight: 700;
 }
