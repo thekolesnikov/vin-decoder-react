@@ -1,5 +1,13 @@
+import { useState } from 'react';
+import Input from '../../components/Input/Input';
+
 function HomePage() {
-    return <div>Homepage</div>;
+    const [vinInfo, setVinInfo] = useState('');
+    return (
+        <main>
+            <Input vinInfo={vinInfo} setVinInfo={setVinInfo} />
+        </main>
+    );
 }
 
 export default HomePage;

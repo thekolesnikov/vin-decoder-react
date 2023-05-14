@@ -1,0 +1,22 @@
+.form {
+    margin-top: 50px;
+}
+
+.form__input {
+    background-color: rgb(224, 235, 227);
+    border: 2px solid rgb(6, 228, 244);
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    outline: none;
+    padding: 5px 10px;
+    min-width: 250px;
+}
+
+.form__button {
+    cursor: pointer;
+    background-color: rgb(224, 235, 227);
+    border: 2px solid rgb(6, 228, 244);
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 5px 10px;
+}
