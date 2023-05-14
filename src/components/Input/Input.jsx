@@ -1,21 +1,28 @@
 import { useState } from 'react';
 import styles from './Input.module.css';
+import { fetchVinInfo } from '../../utils/Api';
 
-function Input({ vinInfo, setVinInfo }) {
+function Input({ setVinInfo }) {
+    const [inputValue, setInputValue] = useState('');
     const [inputError, setInputError] = useState('');
-    function formSubmit(e) {
+    async function formSubmit(e) {
         e.preventDefault();
         setInputError('');
-        if (vinInfo.trim().length < 17) {
+        if (inputValue.trim().length < 17) {
             setInputError(
                 'Please input your VIN code. It should be 17 characters long!'
             );
-        } else if (!/^[A-HJ-NPR-Z0-9]{17}$/i.test(vinInfo)) {
+            setVinInfo([]);
+        } else if (!/^[A-HJ-NPR-Z0-9]{17}$/i.test(inputValue)) {
             setInputError('Invalid VIN');
+            setVinInfo([]);
         } else {
-            setVinInfo('');
+            setInputValue('');
+            const data = await fetchVinInfo(inputValue);
+            setVinInfo(data);
         }
     }
+
     return (
         <>
             <form
@@ -24,8 +31,8 @@ function Input({ vinInfo, setVinInfo }) {
                 action="submit"
             >
                 <input
-                    value={vinInfo}
-                    onChange={(e) => setVinInfo(e.target.value)}
+                    value={inputValue}
+                    onChange={(e) => setInputValue(e.target.value)}
                     type="text"
                     placeholder="Your VIN"
                     className={styles.form__input}
