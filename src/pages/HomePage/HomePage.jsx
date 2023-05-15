@@ -4,12 +4,13 @@ import LastRequests from '../../components/LastRequests/LastRequests';
 import VinInfo from '../../components/VinInfo/VinInfo';
 
 function HomePage() {
+    const [vin, setVin] = useState('');
     const [vinInfo, setVinInfo] = useState([]);
     return (
         <main>
-            <Input setVinInfo={setVinInfo} />
-            <LastRequests setVinInfo={setVinInfo} />
-            <VinInfo vinInfo={vinInfo} />
+            <Input setVinInfo={setVinInfo} setVin={setVin} />
+            <LastRequests setVinInfo={setVinInfo} setVin={setVin} />
+            <VinInfo vinInfo={vinInfo} vin={vin} />
         </main>
     );
 }

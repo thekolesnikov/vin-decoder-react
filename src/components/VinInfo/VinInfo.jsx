@@ -1,20 +1,27 @@
 import styles from './VinInfo.module.css';
 
-function VinInfo({ vinInfo }) {
+function VinInfo({ vinInfo, vin }) {
     return (
-        <div className={styles.vininfo}>
-            {vinInfo.map((item) => {
-                return (
-                    <div
-                        className={styles.vininfo__string}
-                        key={item.VariableId}
-                    >
-                        <span>{item.Variable}: </span>
-                        {item.Value}
+        <>
+            {vin && (
+                <div className={styles.vininfo}>
+                    <div className={styles.vininfo__title}>
+                        VIN Information: {vin}
                     </div>
-                );
-            })}
-        </div>
+                    {vinInfo.map((item) => {
+                        return (
+                            <div
+                                className={styles.vininfo__string}
+                                key={item.VariableId}
+                            >
+                                <span>{item.Variable}: </span>
+                                {item.Value}
+                            </div>
+                        );
+                    })}
+                </div>
+            )}
+        </>
     );
 }
 

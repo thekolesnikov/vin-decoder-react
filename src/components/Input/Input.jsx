@@ -3,13 +3,15 @@ import styles from './Input.module.css';
 import { fetchVinInfo } from '../../utils/Api';
 import { addToLS } from '../../utils/LocalStorage';
 
-function Input({ setVinInfo }) {
+function Input({ setVinInfo, setVin }) {
     const [inputValue, setInputValue] = useState('');
     const [inputError, setInputError] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     async function formSubmit(e) {
         e.preventDefault();
         setInputError('');
+        setVinInfo([]);
+        setVin('');
         if (inputValue.trim().length < 17) {
             setInputError(
                 'Please input your VIN code. It should be 17 characters long!'
@@ -23,6 +25,7 @@ function Input({ setVinInfo }) {
             addToLS(inputValue);
             const data = await fetchVinInfo(inputValue, setIsLoading);
             setVinInfo(data);
+            setVin(inputValue);
         }
     }
 

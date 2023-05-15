@@ -23,3 +23,18 @@ export async function fetchVinInfo(vin, setIsLoading) {
         throw new Error('Oops :( Something goes wrong!');
     }
 }
+
+export async function fetchVariables(setIsLoading, setVariables) {
+    setIsLoading(true);
+    try {
+        const response = await fetch(
+            API_URL + 'getvehiclevariablelist?format=json'
+        );
+        const data = await response.json();
+        setVariables(data.Results);
+        setIsLoading(false);
+    } catch (error) {
+        throw new Error('Oops :( Something goes wrong!');
+        setIsLoading(false);
+    }
+}
