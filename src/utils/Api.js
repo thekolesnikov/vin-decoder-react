@@ -1,6 +1,7 @@
 const API_URL = 'https://vpic.nhtsa.dot.gov/api/vehicles/';
 
-export async function fetchVinInfo(vin) {
+export async function fetchVinInfo(vin, setIsLoading) {
+    setIsLoading(true);
     try {
         const response = await fetch(
             API_URL + 'decodevin/' + vin + '?format=json'
@@ -15,8 +16,10 @@ export async function fetchVinInfo(vin) {
                 Variable !== 'Error Text' &&
                 Variable !== 'Other Engine Info'
         );
+        setIsLoading(false);
         return filteredData;
     } catch (error) {
+        setIsLoading(false);
         throw new Error('Oops :( Something goes wrong!');
     }
 }

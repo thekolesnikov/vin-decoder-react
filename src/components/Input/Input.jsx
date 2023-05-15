@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import styles from './Input.module.css';
 import { fetchVinInfo } from '../../utils/Api';
+import { addToLS } from '../../utils/LocalStorage';
 
 function Input({ setVinInfo }) {
     const [inputValue, setInputValue] = useState('');
     const [inputError, setInputError] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
     async function formSubmit(e) {
         e.preventDefault();
         setInputError('');
@@ -18,7 +20,8 @@ function Input({ setVinInfo }) {
             setVinInfo([]);
         } else {
             setInputValue('');
-            const data = await fetchVinInfo(inputValue);
+            addToLS(inputValue);
+            const data = await fetchVinInfo(inputValue, setIsLoading);
             setVinInfo(data);
         }
     }
@@ -40,6 +43,7 @@ function Input({ setVinInfo }) {
                 <button className={styles.form__button}>Search</button>
             </form>
             {inputError && <div>{inputError}</div>}
+            {isLoading && <div>Loading.....</div>}
         </>
     );
 }
