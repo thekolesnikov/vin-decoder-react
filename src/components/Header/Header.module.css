@@ -15,3 +15,7 @@
     display: flex;
     gap: 30px;
 }
+
+.header__links a:hover {
+    text-decoration: underline;
+}

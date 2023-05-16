@@ -7,8 +7,6 @@ export async function fetchVinInfo(vin, setIsLoading) {
             API_URL + 'decodevin/' + vin + '?format=json'
         );
         const data = await response.json();
-        console.log(data);
-
         const filteredData = data.Results.filter(
             ({ Value, Variable }) =>
                 Value !== null &&
