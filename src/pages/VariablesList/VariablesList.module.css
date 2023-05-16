@@ -1,7 +1,7 @@
 .variables__list {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    row-gap: 30px;
+    gap: 30px 20px;
 }
 
 .variables__item {
@@ -9,4 +9,16 @@
 
 .variables__item:hover {
     text-decoration: underline;
+}
+
+@media (max-width: 950px) {
+    .variables__list {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 500px) {
+    .variables__list {
+        grid-template-columns: 1fr;
+    }
 }

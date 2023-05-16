@@ -35,10 +35,13 @@ function VariablesItem() {
                         {variableItem[0]?.Name}
                     </h2>
                     <div className={styles.variableitem__name}>
-                        {variableItem[0]?.Description.replace(
-                            '<p>',
-                            ''
-                        ).replace('</p>', '')}
+                        {variableItem[0]?.Description.replaceAll('<p>', '')
+                            .replaceAll('</p>', '')
+                            .replaceAll('<br>', '')
+                            .replaceAll('<li>', '')
+                            .replaceAll('</li>', '')
+                            .replaceAll('<ul>', '')
+                            .replaceAll('</ul>', '')}
                     </div>
                 </>
             ) : (

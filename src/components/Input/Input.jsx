@@ -12,7 +12,7 @@ function Input({ setVinInfo, setVin }) {
         setInputError('');
         setVinInfo([]);
         setVin('');
-        if (inputValue.trim().length < 17) {
+        if (inputValue.trim().length !== 17) {
             setInputError(
                 'Please input your VIN code. It should be 17 characters long!'
             );

@@ -20,3 +20,9 @@
 .form__error {
     color: rgb(221, 8, 8);
 }
+
+@media (max-width: 500px) {
+    .form__input {
+        min-width: 200px;
+    }
+}

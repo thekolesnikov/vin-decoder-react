@@ -13,3 +13,27 @@ body {
 a.active {
     font-weight: 700;
 }
+
+@media (max-width: 1250px) {
+    .container {
+        max-width: 900px;
+    }
+}
+
+@media (max-width: 950px) {
+    .container {
+        max-width: 650px;
+    }
+}
+
+@media (max-width: 700px) {
+    .container {
+        max-width: 450px;
+    }
+}
+
+@media (max-width: 500px) {
+    .container {
+        max-width: 300px;
+    }
+}
