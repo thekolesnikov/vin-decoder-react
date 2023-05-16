@@ -34,7 +34,29 @@ export async function fetchVariables(setIsLoading, setVariables) {
         setVariables(data.Results);
         setIsLoading(false);
     } catch (error) {
-        throw new Error('Oops :( Something goes wrong!');
         setIsLoading(false);
+        throw new Error('Oops :( Something goes wrong!');
+    }
+}
+
+export async function fetchFilterVariables(
+    setIsLoading,
+    setVariableItem,
+    params
+) {
+    setIsLoading(true);
+    try {
+        const response = await fetch(
+            API_URL + 'getvehiclevariablelist?format=json'
+        );
+        const data = await response.json();
+        const filteredData = data.Results.filter((item) => {
+            return item.ID == params.id;
+        });
+        setVariableItem(filteredData);
+        setIsLoading(false);
+    } catch (error) {
+        setIsLoading(false);
+        throw new Error('Oops :( Something goes wrong!');
     }
 }

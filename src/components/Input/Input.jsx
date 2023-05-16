@@ -45,7 +45,9 @@ function Input({ setVinInfo, setVin }) {
                 />
                 <button className={styles.form__button}>Search</button>
             </form>
-            {inputError && <div>{inputError}</div>}
+            {inputError && (
+                <div className={styles.form__error}>{inputError}</div>
+            )}
             {isLoading && <div>Loading.....</div>}
         </>
     );

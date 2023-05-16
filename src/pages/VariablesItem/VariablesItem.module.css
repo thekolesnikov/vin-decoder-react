@@ -1,0 +1,20 @@
+.variableitem__button {
+    cursor: pointer;
+    background-color: rgb(13, 210, 66);
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-bottom: 20px;
+}
+
+.variableitem__title {
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.variableitem__name {
+    text-align: center;
+    font-size: 16px;
+}
