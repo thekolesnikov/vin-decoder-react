@@ -17,6 +17,15 @@
     padding: 5px 10px;
 }
 
+.form__button_loading {
+    cursor: not-allowed;
+    background-color: rgb(224, 235, 227);
+    border: 2px solid rgb(6, 228, 244);
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 5px 10px;
+}
+
 .form__error {
     color: rgb(221, 8, 8);
 }

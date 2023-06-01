@@ -1,10 +1,7 @@
-import { useState } from 'react';
 import styles from './LastRequests.module.css';
-import { fetchVinInfo } from '../../utils/Api';
 
-function LastRequests({ setVinInfo, setVin }) {
+function LastRequests({ setVinInfo, fetchVin, isLoading }) {
     const lastVINs = JSON.parse(localStorage.getItem('lastVINs'));
-    const [isLoading, setIsLoading] = useState(false);
 
     return (
         <>
@@ -14,24 +11,26 @@ function LastRequests({ setVinInfo, setVin }) {
                     {lastVINs?.map((vin, index) => {
                         return (
                             <p
-                                className={styles.lastvins__item}
+                                className={
+                                    isLoading
+                                        ? styles.lastvins__item_loading
+                                        : styles.lastvins__item
+                                }
                                 key={index}
                                 onClick={async () => {
                                     setVinInfo([]);
-                                    setVin('');
-                                    const data = await fetchVinInfo(
-                                        vin,
-                                        setIsLoading
-                                    );
-                                    setVinInfo(data);
-                                    setVin(vin);
+                                    fetchVin(vin);
                                 }}
                             >
                                 {vin}
                             </p>
                         );
                     })}
-                    {isLoading && <div>Loading.....</div>}
+                    {isLoading && (
+                        <div className={styles.lastvins__loading}>
+                            Loading.....
+                        </div>
+                    )}
                 </div>
             )}
         </>

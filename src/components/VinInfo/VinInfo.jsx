@@ -1,14 +1,14 @@
 import styles from './VinInfo.module.css';
 
-function VinInfo({ vinInfo, vin }) {
+function VinInfo({ vinInfo }) {
     return (
         <>
-            {vin && (
+            {vinInfo[1] && (
                 <div className={styles.vininfo}>
                     <div className={styles.vininfo__title}>
-                        VIN Information: {vin}
+                        VIN Information: {vinInfo[1]}
                     </div>
-                    {vinInfo.map((item) => {
+                    {vinInfo[0].map((item) => {
                         return (
                             <div
                                 className={styles.vininfo__string}

@@ -16,8 +16,9 @@ export async function fetchVinInfo(vin, setIsLoading) {
                 Variable !== 'Error Text' &&
                 Variable !== 'Other Engine Info'
         );
+        const finalDataWithVin = [filteredData, vin];
         setIsLoading(false);
-        return filteredData;
+        return finalDataWithVin;
     } catch (error) {
         setIsLoading(false);
         throw new Error('Oops :( Something goes wrong!');
